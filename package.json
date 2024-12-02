@@ -1,0 +1,13 @@
+{
+  "name": "Blockchain-Banking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MicrosoftWindows96/Blockchain-Banking.git",
+  "author": "Zagrosi <github@zagrosi.com>",
+  "license": "MIT",
+  "dependencies": {
+    "Blockchain-Banking": "file:",
+    "ethereum-cryptography": "^3.0.0",
+    "ethers": "^6.13.4"
+  }
+}

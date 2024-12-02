@@ -1,26 +1,17 @@
 // src/interfaces/ITransaction.ts
 
-import { BigNumber } from 'ethers'; // Import required types from ethers library for handling large numbers
-
 export interface Transaction {
-   to: string; // Recipient ETH address
-   
-   value: BigNumber; // Amount of ETH/tokens to send
-   
-   gasPrice: BigNumber; // Gas price willing to pay (in wei)
-   
-   gasLimit: BigNumber; // Gas limit for transaction
-   
-   data?: string; // Transaction data (for contract interactions)
-   
-   nonce: number; // Transaction nonce (sequential number)
+   to: string; // recipient address
+   value: bigint; // amount to send
+   gasPrice: bigint; // gas price
+   gasLimit: bigint; // gas limit
+   data?: string; // tx data (for contract calls)
+   nonce: number; // tx nonce (sequential number)
 }
 
 export interface SignedTransaction extends Transaction {
-   hash: string; // Original transaction hash
-   
-   // Signature components
-   r: string;  // First 32 bytes of signature
-   s: string;  // Second 32 bytes
-   v: number;  // Recovery value and chain ID
+   hash: string; // original tx hash
+   r: string; // first 32 bytes of signature
+   s: string; // second 32 bytes of signature
+   v: number; // recovery value and chain ID
 }

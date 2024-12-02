@@ -1,13 +1,12 @@
 // src/interfaces/IWallet.ts
-
-import { BigNumber } from 'ethers'; // Import required types from ethers library for handling large numbers
-import { Transaction, SignedTransaction } from './ITransaction'; // Import transaction types from ITransaction.ts
+import { Transaction, SignedTransaction } from './ITransaction'; // import Transaction and SignedTransaction interfaces from ITransaction.ts
 
 export interface IWallet {
-    address: string; // Wallet ETH address (0x...)
-    privateKey: string; // Private key (secret)
-    publicKey: string; // Public key derived from privateKey
-    createWallet(): Promise<void>; // Create new wallet (generates keys)
-    getBalance(): Promise<BigNumber>; // Query blockchain for current balance
-    signTransaction(tx: Transaction): Promise<SignedTransaction>; // Takes unsigned transaction, returns signed with privateKey
+    address: string; // wallet Ethereum address
+    privateKey: string; // wallet private key
+    publicKey: string; // wallet public key (derived from private key)
+
+    createWallet(): Promise<void>; // create a new wallet
+    getBalance(): Promise<bigint>; // get wallet balance
+    signTransaction(tx: Transaction): Promise<SignedTransaction>; // sign a transaction with wallet private key
 }
